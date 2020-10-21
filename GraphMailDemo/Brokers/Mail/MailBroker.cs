@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security;
 using System.Threading.Tasks;
 using GraphMailDemo.Models.Configurations;
@@ -93,13 +94,11 @@ namespace GraphMailDemo.Brokers.Mail
 
         private SecureString GetSecurePasswordString()
         {
-            var securePasswordString = new SecureString();
+            var userCredentials = new NetworkCredential(
+                userName: this.mailConfiguration.Email,
+                password: this.mailConfiguration.Password);
 
-            this.mailConfiguration.Password.ToList()
-                .ForEach(character =>
-                    securePasswordString.AppendChar(character));
-
-            return securePasswordString;
+            return userCredentials.SecurePassword;
         }
 
         private async ValueTask SendEmailMessageAsync(Message message)
