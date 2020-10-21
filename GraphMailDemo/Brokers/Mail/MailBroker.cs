@@ -23,7 +23,7 @@ namespace GraphMailDemo.Brokers.Mail
             this.graphServiceClient = BuildGraphServiceClient();
         }
 
-        public async ValueTask SendMail(
+        public async ValueTask SendMailAsync(
             List<string> recipients,
             List<string> ccRecipients,
             string subject,

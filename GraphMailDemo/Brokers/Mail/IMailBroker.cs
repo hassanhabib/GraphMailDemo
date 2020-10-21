@@ -5,7 +5,7 @@ namespace GraphMailDemo.Brokers.Mail
 {
     public interface IMailBroker
     {
-        ValueTask SendMail(
+        ValueTask SendMailAsync(
             List<string> recipients, 
             List<string> ccRecipients, 
             string subject, 
