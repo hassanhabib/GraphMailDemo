@@ -64,7 +64,7 @@ namespace GraphMailDemo.Brokers.Mail
 
                 Body = new ItemBody
                 {
-                    ContentType = BodyType.Text,
+                    ContentType = BodyType.Html,
                     Content = content
                 },
 
